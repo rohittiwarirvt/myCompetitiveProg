@@ -5,12 +5,14 @@
 
 
 #include <iostream>
+#include<stdlib.h>
+#include<stdio.h>
 
 using namespace std;
 
 void printArray(int arr[], int array_length);
-void mergeSort( int array[], int start_index, int end_index);
-void merge(int array[], int start_index, int middle_index, int end_index );
+void mergeSort( int arr[], int start_index, int end_index);
+void merge(int arr[], int start_index, int middle_index, int end_index );
 
 
 int main()
@@ -33,17 +35,17 @@ void printArray(int arr[], int array_length) {
     cout << endl;
 }
 
-void mergeSort( int array[], int start_index, int end_index) {
+void mergeSort( int arr[], int start_index, int end_index) {
 
   if ( start_index < end_index) {
     int middle = start_index + (end_index - start_index)/2;
-    mergeSort(array, start_index, middle);
-    mergeSort(array, middle +1, end_index);
-    merge(array, start_index, middle, end_index);
+    mergeSort(arr, start_index, middle);
+    mergeSort(arr, middle +1, end_index);
+    merge(arr, start_index, middle, end_index);
   }
 }
 
-void merge(int array[], int start_index, int middle_index, int end_index ) {
+void merge(int arr[], int start_index, int middle_index, int end_index ) {
 
    int left_array_length = middle_index- start_index + 1;
    int right_array_length = end_index - middle_index;
@@ -54,34 +56,34 @@ void merge(int array[], int start_index, int middle_index, int end_index ) {
 
    // copy value in left array
     for (int i =0 ; i < left_array_length; i++) {
-      left_array[i] = array[start_index + i];
+      left_array[i] = arr[start_index + i];
     }
 
    // copy value in right array
 
    for (int i=0 ; i < right_array_length ; i++) {
-    right_array[i] = array[middle_index + 1 +i];
+    right_array[i] = arr[middle_index + 1 +i];
    }
 
    while (left_array_counter < left_array_length && right_array_counter < right_array_length) {
-      if ( left_array[left_array_counter] < right_array[right_array_counter] ) {
-        array[result_array_counter] = left_array[left_array_counter];
+      if ( left_array[left_array_counter] <= right_array[right_array_counter] ) {
+        arr[result_array_counter] = left_array[left_array_counter];
         left_array_counter++;
       } else {
-        array[result_array_counter] = right_array[right_array_counter];
+        arr[result_array_counter] = right_array[right_array_counter];
         right_array_counter++;
       }
       result_array_counter++;
    }
 
-   while ( result_array_counter  < left_array_length ) {
-     array[result_array_counter] = left_array[left_array_counter];
+   while ( left_array_counter  < left_array_length ) {
+     arr[result_array_counter] = left_array[left_array_counter];
      left_array_counter++;
-     right_array_counter++;
+     result_array_counter++;
    }
 
-   while (result_array_counter < right_array_length) {
-    array[result_array_counter] = right_array[right_array_counter];
+   while (right_array_counter < right_array_length) {
+    arr[result_array_counter] = right_array[right_array_counter];
     result_array_counter++;
     right_array_counter++;
    }
