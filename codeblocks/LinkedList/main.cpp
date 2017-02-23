@@ -20,10 +20,10 @@ typedef struct Node {
 Node* createNode(int);
 void insertNodeFirst();
 void insertNodeLast();
-void insertNodePost();
+void insertNodePos();
 void sortedAscend();
-void deletListPos();
-void search();
+void deleteListPos();
+void searchList();
 void updateListVal();
 void printList();
 void revDisplay(Node *);
@@ -58,42 +58,44 @@ int main()
 
     switch(ch) {
       case 1:
-          printf("\n Insert node at first location");
+          printf("\n...Inserting node at first...");
           insertNodeFirst();
         break;
       case 2:
-          printf("\n Inserted node at last location");
+          printf("\n...Inserting node at last...");
           insertNodeLast();
         break;
       case 3:
-          printf("\n Inserted node at position ");
-          insertNodePost();
+          printf("\n...Inserting node at position...");
+          insertNodePos();
         break;
       case 4:
-          printf("\n");
+          printf("\n...Sorted Linked List in Ascending Order..");
           sortedAscend();
         break;
       case 5:
-          printf("\n");
-          deletListPos();
+          printf("\n...Deleting Node from any Position...");
+          deleteListPos();
         break;
       case 6:
-        printf("\n");
-        updateListVal();
-
-        break;
+          printf("\n...Updating Node Value...");
+          updateListVal();
+          break;
       case 7:
-        printf("\n");
-        search();
+        printf("\n...Searching Element in the List...");
+        searchList();
         break;
       case 8:
-
+        printf("\n...Displaying List From Beginning to End...");
+        printList();
         break;
       case 9:
-
+        printf("\n...Displaying List From End using Recursion...");
+        revDisplay(first);
         break;
       case 10:
-
+        printf("\n...Exiting...\n");
+        return 0;
         break;
       default:
         printf("how r u today can u please choose a legal choice");
@@ -118,7 +120,8 @@ Node * createNode(int val) {
 
 }
 // insert node at first location
-void insertNodeFirst() {
+void insertNodeFirst()
+{
   int val;
 
   printf("\nEnter the value of the node");
@@ -137,7 +140,8 @@ void insertNodeFirst() {
   printf("\n --- INSERTED----");
 }
 
-void insertNodeLast() {
+void insertNodeLast()
+{
   int val;
 
   printf("\n Enter the value of the node");
@@ -156,17 +160,18 @@ void insertNodeLast() {
 }
 
 
-void insertNodePost() {
-  int pos, val, count = 0;
+void insertNodePos()
+{
+  int i, pos, val, count = 0;
   printf("\nEnter value of node");
   scanf("%d", &val);
   newnode = createNode(val);
   printf("\nEnter position to insert the node");
   scanf("%d", &pos);
   ptr = first;
-  while (ptr !== NULL) {
+  while (ptr != NULL) {
     ptr = ptr->next;
-    cout++;
+    count++;
   }
   if (pos == 1) {
     if (first == last && first == NULL) {
@@ -179,7 +184,7 @@ void insertNodePost() {
       first->next = temp;
     }
   }
-  else if (pos > 1 && pos <= cnt) {
+  else if (pos > 1 && pos <= count) {
     ptr = first;
     for(i =1 ; i < pos ; i++) {
       prev = ptr;
@@ -191,5 +196,149 @@ void insertNodePost() {
 
   } else {
     printf("\n Position is out of bound pointer at wrong position");
+  }
+}
+
+void sortedAscend()
+{
+  Node * next;
+  int t;
+
+  if (first == NULL) {
+    ISEMPTY;
+    printf(": No element to sort\n");
+  } else {
+    for( ptr = first; ptr != NULL; ptr = ptr->next) {
+      for(next = ptr->next; next != NULL; next = next->next) {
+        if (ptr->value  > next->value) {
+          t = ptr->value;
+          ptr->value = next->value;
+          next->value = t;
+        }
+      }
+    }
+
+    printf("\n --- Sorted List ---");
+
+    for (ptr = first; ptr != NULL; ptr = ptr->next) {
+      printf("%d\t", ptr->value);
+    }
+  }
+}
+
+void deleteListPos()
+{
+  int pos, cnt = 0;
+
+  if (first == NULL) {
+    ISEMPTY;
+    printf("\n There is not pointers yet");
+  } else {
+    printf("\n Enter the position to be deleted");
+    scanf("%d", &pos);
+    ptr = first;
+    if (pos == 1) {
+      first = first->next;
+    } else {
+      while (ptr != NULL) {
+        cnt++;
+        ptr = ptr->next;
+      }
+      if(pos > 1 &&  pos <= cnt) {
+
+        ptr = first;
+        for ( int i=0; i < pos; i++ ) {
+          prev = ptr;
+          ptr = ptr->next;
+        }
+        prev->next = ptr->next;
+      } else {
+        printf("Position is out of range");
+      }
+      free(ptr);
+      printf("\n Element is deleted");
+    }
+  }
+}
+
+
+void updateListVal()
+{
+  int flag = 0, oldvalue, newvalue;
+  if ( first == NULL) {
+      ISEMPTY;
+  } else {
+    printf("\n Enter the old value u want to update");
+    scanf("%d", &oldvalue);
+    printf("\n Enter the new value u want to assign");
+    scanf("%d", &newvalue);
+    for ( ptr = first; ptr != NULL ; ptr = ptr ->next) {
+      if (ptr->value == oldvalue) {
+        flag = 1;
+        ptr->value = newvalue;
+        break;
+      }
+    }
+
+    if ( flag == 1) {
+      printf("Updated value successfully");
+    } else {
+      printf("Sorry ! Unable to find the value which we were supposed to update");
+    }
+  }
+}
+
+
+void searchList()
+{
+  int flag, key, pos = 0;
+
+  if (first == NULL) {
+    ISEMPTY;
+    printf("\n Somethings unexpected happened");
+  } else {
+    printf("\n Enter the value you want to search");
+    for(ptr = first; ptr != NULL ; ptr = ptr->next) {
+      pos = pos + 1;
+      if (ptr->value == key) {
+        flag = 1;
+        break;
+
+      }
+    }
+    if (flag == 1 ) {
+      printf("\n Found the dude %d you were looking for @ %d position", key, pos);
+    } else {
+      printf("\n Hey i think theres is no such key available in the complex");
+    }
+
+  }
+}
+
+
+void printList() {
+
+  if (first == NULL) {
+    ISEMPTY;
+  } else {
+    for(ptr = first; ptr != NULL; ptr= ptr->next) {
+      printf("%d", ptr->value);
+    }
+  }
+}
+
+void revDisplay(Node * ptr) {
+  int value;
+
+  if (ptr  == NULL) {
+      ISEMPTY;
+      printf("\n No nodes to display");
+  } else {
+      if (ptr != NULL) {
+        value = ptr->value;
+        revDisplay(ptr->next);
+        printf("%d", value);
+      }
+
   }
 }
