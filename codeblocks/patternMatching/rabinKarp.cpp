@@ -1,4 +1,4 @@
-// referring http://www.geeksforgeeks.org/searching-for-patterns-set-3-rabin-karp-algorithm/
+  // referring http://www.geeksforgeeks.org/searching-for-patterns-set-3-rabin-karp-algorithm/
 
 // Following program is c implementation of Rabin Karp Algorithm given in the CLRS book
 
