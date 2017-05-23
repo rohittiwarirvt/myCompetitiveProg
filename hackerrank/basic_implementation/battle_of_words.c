@@ -34,7 +34,7 @@ int main() {
       }
     }
 
-    printf("%d %d\n", alice_is_on_lead, bob_is_on_lead);
+    //printf("%d %d\n", alice_is_on_lead, bob_is_on_lead);
     if (alice_is_on_lead > bob_is_on_lead && bob_is_on_lead ==0) {
       printf("You win some.\n");
     } else if(bob_is_on_lead > alice_is_on_lead && alice_is_on_lead==0) {
