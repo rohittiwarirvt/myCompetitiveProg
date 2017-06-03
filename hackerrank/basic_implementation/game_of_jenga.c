@@ -31,9 +31,9 @@ int main() {
     space_remaning=3;
     j=0;
     while(j<3){
-      j++;
+
       printf("%d tower level %lld\n",level, tower[level][j]);
-      if (tower[level][j]==0){
+      if (tower[level][j++]==0){
         space_remaning--;
       }
     }
