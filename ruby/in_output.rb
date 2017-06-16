@@ -19,3 +19,4 @@ puts "Hello #{name}"
 =end
 
 array = gets.chomp
+
