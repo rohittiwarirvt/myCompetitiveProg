@@ -1,0 +1,14 @@
+/*
+5
+1 vasya
+2 petya
+3 kolya
+4 limak
+5 illya
+2
+1
+2
+
+vasya
+petya
+ */

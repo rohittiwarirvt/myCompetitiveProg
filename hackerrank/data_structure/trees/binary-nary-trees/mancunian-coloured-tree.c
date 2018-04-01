@@ -1,0 +1,11 @@
+/*
+
+SAMPLE INPUT
+5 4
+1 1 3 3
+1 4 2 1 2
+
+SAMPLE OUTPUT
+-1 -1 -1 1 3
+
+ */

@@ -1,0 +1,18 @@
+/*
+
+SAMPLE INPUT
+
+2
+3
+0 1 1
+2
+2 0
+
+
+SAMPLE OUTPUT
+
+2 1
+1 0
+
+
+ */
