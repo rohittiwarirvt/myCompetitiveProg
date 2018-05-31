@@ -1,0 +1,10 @@
+/*
+
+SAMPLE INPUT
+4
+2 1 3 4
+
+SAMPLE OUTPUT
+3
+
+ */

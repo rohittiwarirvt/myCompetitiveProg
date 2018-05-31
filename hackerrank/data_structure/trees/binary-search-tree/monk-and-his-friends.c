@@ -1,0 +1,16 @@
+/*
+
+
+SAMPLE INPUT
+
+1
+2 3
+3 2 9 11 2
+
+SAMPLE OUTPUT
+
+NO
+NO
+YES
+
+ */

@@ -1,0 +1,14 @@
+/*
+
+SAMPLE INPUT
+
+5
+4 7 8 6 3
+3 7
+
+
+SAMPLE OUTPUT
+
+7
+
+ */
