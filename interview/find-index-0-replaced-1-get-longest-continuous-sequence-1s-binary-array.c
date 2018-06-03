@@ -40,3 +40,4 @@ int main() {
   printf("%d\n", result);
   return 0;
 }
+
