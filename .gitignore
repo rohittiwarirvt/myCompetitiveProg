@@ -3,3 +3,5 @@ obj
 *.depend*
 *.out*
 .vscode/
+*.o"
+*.class*

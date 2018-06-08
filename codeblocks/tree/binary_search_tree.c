@@ -54,6 +54,38 @@ void inorder(struct tree* root) {
     inorder(root->right);
   }
 }
+
+
+struct tree* deleteNode(struct tree* root, int key) {
+  if (root == NULL) {
+    return;
+  }
+
+  if (key < root->data) {
+    root->left = deleteNode(root->left, key);
+  } else if (key > root->data) {
+    root->right = deleteNode(root->left, key);
+
+  } else {
+    if (root->left == NULL) {
+      struct tree *temp  = root->right;
+      free(root);
+      return temp;
+    }
+    if (root->right == NULL) {
+      struct tree *temp  = root->left;
+      free(root);
+      return temp;
+    }
+
+    struct tree *temp = minValueNode(root->right);
+    root->key = temp->key;
+
+    root->right = deleteNode(root->right, temp->key);
+  }
+}
+
+
 int main() {
   struct tree *root = NULL;
 
