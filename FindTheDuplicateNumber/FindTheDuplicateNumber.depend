@@ -1,0 +1,16 @@
+# depslib dependency file v1.0
+1602418833 source:/home/rohit/code/udemy/competitive_programming/faang180set/FindTheDuplicateNumber/sortingApproach.cpp
+	<bits/stdc++.h>
+	"allheaders.h"
+
+1602426531 source:/home/rohit/code/udemy/competitive_programming/faang180set/FindTheDuplicateNumber/main.cpp
+	<iostream>
+	<bits/stdc++.h>
+	"allheaders.h"
+
+1602426432 /home/rohit/code/udemy/competitive_programming/faang180set/FindTheDuplicateNumber/allheaders.h
+
+1602422754 source:/home/rohit/code/udemy/competitive_programming/faang180set/FindTheDuplicateNumber/hashingApproach.cpp
+	<bits/stdc++.h>
+	"allheaders.h"
+
